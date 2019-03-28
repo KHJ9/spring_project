@@ -4,6 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.mybatis.example.BlogMapper">
   <select id="primary_num" resultType="String">
-    SELECT * FROM h_notice WHERE num = #{num};
+    SELECT * FROM h_notice WHERE reg_id = #{reg_id};
   </select>
 </mapper>
