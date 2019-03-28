@@ -12,6 +12,19 @@
 		<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 	</head>
 	<body>
+		
+		
+		
+		<!-- 현재 url을 가져온다 -->
+		<%String context = request.getContextPath(); %>
+		
+		<form action="<%=context%>/Mybatis" method="post">
+			<input type="text" value="register">
+			<input type="submit" value="register_check">
+		</form>
+		
+		
+		
 		<!-- skip navigation -->
 		<dl id="access"> <!-- 제목이 나오고 설명이 나오는 것이 반복 -->
 			<dt>바로가기 및 건너띄기 링크</dt>
