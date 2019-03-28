@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+body {margin:0; padding:0; color:#555;}
+body * {margin:0; padding:0; box-sizing:border-box;}
+ul, ol, dl {list-style:none;}
+a {text-decoration:none; color:#4c4c4c;}
+h1, h2, h3, h4, h5, h6 {font-size:16px; font-weight:normal;}
+section, article, header, footer, nav, main {display:block;}
+img, fieldset {border:none;}
+hr, legend, caption {widthg:100%; height:0; line-height:0; font-size:0; color:transparent; border:0; overflow:hidden;}
+table {border-collapse:collapse;} /* 표에서 셀과 셀 사이의 여백을 리셋 */
+input[type="radio"], input[type="checkbox"] {vertical-align:middle; width:auto; border:none;}
+address {font-style:normal;}
+.readonly {position:absolute; font-size:0; height:0; line-height:0; overflow:hidden; left:-10000px;}
