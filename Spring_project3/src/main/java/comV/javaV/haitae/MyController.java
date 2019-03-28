@@ -28,6 +28,7 @@ public class MyController {
 		model.addAttribute("news", News);
 		model.addAttribute("event", Event);
 		return "index";
+		// 
 	}
 	
 }
