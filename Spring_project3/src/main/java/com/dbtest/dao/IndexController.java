@@ -33,16 +33,25 @@ public class IndexController {
 		// String register = request.getParameter("register");
 		// mybatis(xml)을 이용하여 DB값 가져오기 예제
 		
-		List<Map> result = new ArrayList<Map>();
+		// List<Map> result = new ArrayList<Map>();
 		
 		System.out.println("데이터 불러오기 준비");
 		
-		result.add(mapper.get_notice());
+		List<Map> notice = mapper.get_notice();
+		List<Map> news = mapper.get_news();
+		List<Map> event = mapper.get_event();
+		
+		model.addAttribute("notice", notice);
+		model.addAttribute("news", news);
+		model.addAttribute("event", event);
+		
+		/*result.add(mapper.get_notice());
 		result.add(mapper.get_news());
 		result.add(mapper.get_event());
 		
 		model.addAttribute("list", result);
-		model.addAttribute("test", "test");
+		model.addAttribute("test", "test");*/
+		
 		System.out.println("@@@@@@@@@@@@@@"+model.toString());
 		
 		return "index";

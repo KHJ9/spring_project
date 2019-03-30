@@ -3,7 +3,7 @@ package com.dbtest.dao;
 public class MyBatisDAO {
 
 	private String num, title, contents, reg_date, reg_id, file_name, hit;
-	
+
 	@Override
 	public String toString() {
 		return "MyBatisDAO [num=" + num + ", title=" + title + ", contents=" + contents + ", reg_date=" + reg_date
