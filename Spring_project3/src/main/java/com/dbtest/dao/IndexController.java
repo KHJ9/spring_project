@@ -46,6 +46,7 @@ public class IndexController {
 		System.out.println(result.toString());
 		
 		model.addAttribute("list", result);
+		model.addAttribute("test", "test");
 		System.out.println("@@@@@@@@@@@@@@"+model.toString());
 		return "redirect:index";
 	}

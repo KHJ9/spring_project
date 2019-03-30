@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="ko">
 	<head>
-		<title>아쿠아필드</title>
+		<title>아쿠아필드${test}</title>
 		<meta charset="utf-8">
 		<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet" type="text/css">
 		<link href="${pageContext.request.contextPath}/resources/css/haitai.css" rel="stylesheet" type="text/css">
@@ -45,7 +45,7 @@
 				<div class="inner">
 					<div class="v-text">
 						<!-- <p class="line01">생각을 비우다</p> -->
-						<p class="line02" style="font-size:45px;">${list}나를 위한 인생을 가꾸다</p>
+						<p class="line02" style="font-size:45px;">나를 위한 인생을 가꾸다</p>
 					</div>
 				</div>
 			</section> <!-- mainvisual end -->
