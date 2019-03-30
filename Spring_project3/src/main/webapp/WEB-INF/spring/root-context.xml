@@ -24,8 +24,6 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
 	<mybatis-spring:scan base-package="com.dbtest.dao"/>	
-	
-	
-	<!-- practice -->
+	<mybatis-spring:scan base-package="comV.javaV.haitae"/>	
 	
 </beans>

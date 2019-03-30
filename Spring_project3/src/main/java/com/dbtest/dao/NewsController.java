@@ -1,4 +1,4 @@
-package comV.javaV.haitae;
+package com.dbtest.dao;
 
 import java.util.ArrayList;
 
@@ -20,42 +20,42 @@ public class NewsController {
 		
 		DBprocess proc = new DBprocess();
         PageMaker pagemaker = new PageMaker();
-        String pagenum = request.getParameter("pagenum");//í˜ì´ì§€ ê°’ì„ ì…ë ¥ ë°›ëŠ”ë‹¤.
+        String pagenum = request.getParameter("pagenum");//?˜?´ì§? ê°’ì„ ?…? ¥ ë°›ëŠ”?‹¤.
         String search = request.getParameter("t_search");
         if(pagenum == null) pagenum ="1";
-        int cpagenum = Integer.parseInt(pagenum);//int í˜•ìœ¼ë¡œ ëª‡ ë²ˆ í˜ì´ì§€ì¸ì§€ í˜ì´ì§€ ê°’ í˜•ë³€í™˜
+        int cpagenum = Integer.parseInt(pagenum);//int ?˜•?œ¼ë¡? ëª? ë²? ?˜?´ì§??¸ì§? ?˜?´ì§? ê°? ?˜•ë³??™˜
         
         if(search == null) search = "";
         String sQueryCount = "SELECT COUNT(*) AS count FROM h_news WHERE title LIKE '%"+search+"%'";
         int totalC = proc.getTotalCount(sQueryCount);
         
-    /*---------í˜ì´ì§€ ê°ì²´ì— ìƒˆë¡œìš´ ì •ë³´ ë‹¤ì‹œ ì§€ì •í•´ì£¼ëŠ” ë¶€ë¶„------------------*/
-        pagemaker.setTotalcount(totalC);//ì „ì²´ ê²Œì‹œê¸€ ê°œìˆ˜ ì§€ì •í•œë‹¤
-        pagemaker.setPagenum(cpagenum-1);//í˜„ì¬ í˜ì´ì§€ë¥¼ í˜ì´ì§€ ê°ì²´ì— ë‹¤ì‹œ ì§€ì •í•´ì¤€ë‹¤//ëª‡ë²ˆ í˜ì´ì§€ì¸ì§€ PageMakerì— ì„¸íŒ…í•œë‹¤
-        pagemaker.setCurrentblock(cpagenum);//í˜„ì¬ í˜ì´ì§€ë¸”ë¡ì´ ëª‡ë²ˆì¸ì§€ í˜„ì¬ í˜ì´ì§€ ë²ˆí˜¸ë¥¼ í†µí•´ì„œ ì§€ì •í•œë‹¤
-        pagemaker.setLastblock(totalC);//ë§ˆì§€ë§‰ ë¸”ë¡ ë²ˆí˜¸ë¥¼ ì „ì²´ ê²Œì‹œê¸€ ìˆ˜ë¥¼ í†µí•´ì„œ ì •í•œë‹¤
-    /*---------í˜ì´ì§€ ê°ì²´ì— ìƒˆë¡œìš´ ì •ë³´ ë‹¤ì‹œ ì§€ì •í•´ì£¼ëŠ” ë¶€ë¶„------------------*/
+    /*---------?˜?´ì§? ê°ì²´?— ?ƒˆë¡œìš´ ? •ë³? ?‹¤?‹œ ì§?? •?•´ì£¼ëŠ” ë¶?ë¶?------------------*/
+        pagemaker.setTotalcount(totalC);//? „ì²? ê²Œì‹œê¸? ê°œìˆ˜ ì§?? •?•œ?‹¤
+        pagemaker.setPagenum(cpagenum-1);//?˜„?¬ ?˜?´ì§?ë¥? ?˜?´ì§? ê°ì²´?— ?‹¤?‹œ ì§?? •?•´ì¤??‹¤//ëª‡ë²ˆ ?˜?´ì§??¸ì§? PageMaker?— ?„¸?Œ…?•œ?‹¤
+        pagemaker.setCurrentblock(cpagenum);//?˜„?¬ ?˜?´ì§?ë¸”ë¡?´ ëª‡ë²ˆ?¸ì§? ?˜„?¬ ?˜?´ì§? ë²ˆí˜¸ë¥? ?†µ?•´?„œ ì§?? •?•œ?‹¤
+        pagemaker.setLastblock(totalC);//ë§ˆì?ë§? ë¸”ë¡ ë²ˆí˜¸ë¥? ? „ì²? ê²Œì‹œê¸? ?ˆ˜ë¥? ?†µ?•´?„œ ? •?•œ?‹¤
+    /*---------?˜?´ì§? ê°ì²´?— ?ƒˆë¡œìš´ ? •ë³? ?‹¤?‹œ ì§?? •?•´ì£¼ëŠ” ë¶?ë¶?------------------*/
         
-        pagemaker.prevnext(cpagenum);//í˜„ì¬ í˜ì´ì§€ ë²ˆí˜¸ë¡œ í™”ì‚´í‘œ ë‚˜íƒ€ë‚¼ì§€ ê²°ì •í•œë‹¤
-        pagemaker.setStartPage(pagemaker.getCurrentblock());//ì‹œì‘í˜ì´ì§€ ë²ˆí˜¸ë¥¼ í˜„ì¬ í˜ì´ì§€ ë¸”ë¡ìœ¼ë¡œ ì •í•œë‹¤
+        pagemaker.prevnext(cpagenum);//?˜„?¬ ?˜?´ì§? ë²ˆí˜¸ë¡? ?™”?‚´?‘œ ?‚˜???‚¼ì§? ê²°ì •?•œ?‹¤
+        pagemaker.setStartPage(pagemaker.getCurrentblock());//?‹œ?‘?˜?´ì§? ë²ˆí˜¸ë¥? ?˜„?¬ ?˜?´ì§? ë¸”ë¡?œ¼ë¡? ? •?•œ?‹¤
         pagemaker.setEndPage(pagemaker.getLastblock(),pagemaker.getCurrentblock());
-        //í˜„ì¬ ë¸”ë¡ ë²ˆí˜¸ì™€ ë§ˆì§€ë§‰ ë¸”ë¡ ë²ˆí˜¸ë¥¼ ë³´ë‚´ì„œ ëŒ€ì¡°í•˜ê³  í˜ì´ì§€ ë¸”ë¡ì˜ ë§ˆì§€ë§‰ ë²ˆí˜¸ë¥¼ ì§€ì •í•œë‹¤
+        //?˜„?¬ ë¸”ë¡ ë²ˆí˜¸?? ë§ˆì?ë§? ë¸”ë¡ ë²ˆí˜¸ë¥? ë³´ë‚´?„œ ??ì¡°í•˜ê³? ?˜?´ì§? ë¸”ë¡?˜ ë§ˆì?ë§? ë²ˆí˜¸ë¥? ì§?? •?•œ?‹¤
         
         String sQuery = "select num, title, reg_date, contents, hit  from h_news "+
         							 "where title like '%"+search+"%' "+
         							 "order by num desc  limit "+pagemaker.getPagenum()*pagemaker.contentnum+","+pagemaker.getContentnum();
 		ArrayList<DtoList> newsList = proc.getNoticeList(sQuery);
 		//System.out.println(newsList.get(0).getTitle());
-        //ë§¤í¼ë¡œ í•œ í˜ì´ì§€ì— ëª‡ê°œ ë³´ì¼ì§€ ,ëª‡ë²ˆ í˜ì´ì§€ ì¸ì§€ ì „ë‹¬//ë§¤í¼.xml ì—ì„œ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œ ê³±í•˜ê¸° 10ì„ í•œë‹¤
+        //ë§¤í¼ë¡? ?•œ ?˜?´ì§??— ëª‡ê°œ ë³´ì¼ì§? ,ëª‡ë²ˆ ?˜?´ì§? ?¸ì§? ? „?‹¬//ë§¤í¼.xml ?—?„œ ?‚¬?š©?•˜ê¸? ?œ„?•´?„œ ê³±í•˜ê¸? 10?„ ?•œ?‹¤
  
-        request.setAttribute("newsList", newsList);//sqlë¡œ ì–»ì€ ë¦¬ìŠ¤íŠ¸ë¥¼ .jspí˜ì´ì§€ë¡œ ì „ë‹¬
-        request.setAttribute("page", pagemaker);//í˜ì´ì§€ ë²ˆí˜¸ ê°ì²´ .jspí˜ì´ì§€ë¡œ ì „ë‹¬		
+        request.setAttribute("newsList", newsList);//sqlë¡? ?–»?? ë¦¬ìŠ¤?Š¸ë¥? .jsp?˜?´ì§?ë¡? ? „?‹¬
+        request.setAttribute("page", pagemaker);//?˜?´ì§? ë²ˆí˜¸ ê°ì²´ .jsp?˜?´ì§?ë¡? ? „?‹¬		
         
         model.addAttribute("news", newsList);
         model.addAttribute("page", pagemaker);
         model.addAttribute("totalCount", totalC);
         model.addAttribute("search", search);
-        // 0+1ë¶€í„° ì‹œì‘í•˜ëŠ” í˜ì´ì§€ ë²ˆí˜¸
+        // 0+1ë¶??„° ?‹œ?‘?•˜?Š” ?˜?´ì§? ë²ˆí˜¸
         model.addAttribute("nowPage", pagemaker.getPagenum()+1);
         
         model.addAttribute("totalPage", pagemaker.calcpage(totalC, pagemaker.getContentnum()));
@@ -71,7 +71,7 @@ public class NewsController {
 	@RequestMapping("news_t")
 	public String news_t(HttpServletRequest request, Model model) {
 		
-		/* ë‚´ìš© ì…ë ¥ ì²˜ë¦¬ë¬¸ */
+		/* ?‚´?š© ?…? ¥ ì²˜ë¦¬ë¬? */
 		
 		DBprocess proc = new DBprocess();
 		String sessionId = request.getParameter("sessionid");
@@ -84,12 +84,12 @@ public class NewsController {
 		
 		String sQuery = "";
 		
-		if(gubun.equals("insert")) { // ê¸€ì“°ê¸°
+		if(gubun.equals("insert")) { // ê¸??“°ê¸?
 			sQuery = "INSERT INTO h_news SET num='"+num+"', title='"+title+"', contents='"+contents+"', reg_id='"+sessionId+"', reg_date='"+date+"', hit=0";
 			boolean check = proc.save(sQuery) ;
 		}
 		
-		// notice_rì„ ë§¤í•‘í•˜ëŠ” í´ë˜ìŠ¤ë¡œ ì´ë™í•œë‹¤.
+		// notice_r?„ ë§¤í•‘?•˜?Š” ?´?˜?Š¤ë¡? ?´?™?•œ?‹¤.
 		return "redirect:news_r";
 	}
 	
@@ -125,7 +125,7 @@ public class NewsController {
 	@RequestMapping("news_update")
 	public String news_update(HttpServletRequest request, Model model) {
 		
-		/* ë‚´ìš© ì…ë ¥ ì²˜ë¦¬ë¬¸ */
+		/* ?‚´?š© ?…? ¥ ì²˜ë¦¬ë¬? */
 		
 		DBprocess proc = new DBprocess();
 		String sessionId = request.getParameter("sessionid");
@@ -141,14 +141,14 @@ public class NewsController {
 		sQuery = "UPDATE h_news SET title='"+title+"', contents='"+contents+"', reg_id='"+sessionId+"', reg_date='"+date+"' WHERE num = '"+newsNum+"'";
 		boolean check = proc.save(sQuery) ;
 		
-		// notice_rì„ ë§¤í•‘í•˜ëŠ” í´ë˜ìŠ¤ë¡œ ì´ë™í•œë‹¤.
+		// notice_r?„ ë§¤í•‘?•˜?Š” ?´?˜?Š¤ë¡? ?´?™?•œ?‹¤.
 		return "redirect:news_r";
 	}
 	
 	@RequestMapping("news_delete")
 	public String news_delete(HttpServletRequest request, Model model) {
 		
-		/* ë‚´ìš© ì…ë ¥ ì²˜ë¦¬ë¬¸ */
+		/* ?‚´?š© ?…? ¥ ì²˜ë¦¬ë¬? */
 		
 		DBprocess proc = new DBprocess();
 		String newsNum = request.getParameter("t_news_num"); 
@@ -158,7 +158,7 @@ public class NewsController {
 		sQuery = "DELETE FROM h_news WHERE num = '"+newsNum+"'";
 		boolean check = proc.save(sQuery) ;
 		
-		// notice_rì„ ë§¤í•‘í•˜ëŠ” í´ë˜ìŠ¤ë¡œ ì´ë™í•œë‹¤.
+		// notice_r?„ ë§¤í•‘?•˜?Š” ?´?˜?Š¤ë¡? ?´?™?•œ?‹¤.
 		return "redirect:news_r";
 	}
 	

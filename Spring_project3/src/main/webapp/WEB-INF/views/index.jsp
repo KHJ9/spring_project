@@ -13,17 +13,18 @@
 	</head>
 	<body>
 		
-		
-		
-		<!-- 현재 url을 가져온다 -->
-		<%String context = request.getContextPath(); %>
-		
-		<form action="<%=context%>/Mybatis" method="post">
-			<input type="text" value="register" name="register">
-			<input type="submit" value="register_check">
-		</form>
-		
-		
+		<script>
+			$(document).ready(function(){
+				$.ajax({
+					url:"http://localhost:8080/haitai/getList?useSSL=false",
+					data:null,
+					type:"POST",
+					error:function(data){
+						alert("데이터를 불러오지 못햇습니다.");
+					}
+				});
+			});
+		</script>
 		
 		<!-- skip navigation -->
 		<dl id="access"> <!-- 제목이 나오고 설명이 나오는 것이 반복 -->
@@ -34,7 +35,6 @@
 		<hr>
 		
 		<div id="wrap" class="active">
-			
 			<section id="main-visual">
 				<div class="m_slider">
 					<ul class="list">
@@ -45,7 +45,7 @@
 				<div class="inner">
 					<div class="v-text">
 						<!-- <p class="line01">생각을 비우다</p> -->
-						<p class="line02" style="font-size:45px;">나를 위한 인생을 가꾸다</p>
+						<p class="line02" style="font-size:45px;">${list}나를 위한 인생을 가꾸다</p>
 					</div>
 				</div>
 			</section> <!-- mainvisual end -->

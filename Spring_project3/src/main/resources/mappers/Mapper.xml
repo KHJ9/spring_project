@@ -3,7 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dbtest.dao.Mapper">
-  <select id="get_notice" resultType="String">
-    SELECT title FROM h_notice WHERE num = 1;
+  <select id="get_notice" resultType="Map">
+    SELECT title FROM h_notice ORDER BY num DESC LIMIT 5;
+  </select>
+  <select id="get_news" resultType="Map">
+    SELECT title FROM h_news ORDER BY num DESC LIMIT 5;
+  </select>
+  <select id="get_event" resultType="Map">
+    SELECT title FROM h_event ORDER BY num DESC LIMIT 5;
   </select>
 </mapper>
