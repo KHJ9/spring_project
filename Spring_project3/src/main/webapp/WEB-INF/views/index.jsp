@@ -19,7 +19,7 @@
 		<%String context = request.getContextPath(); %>
 		
 		<form action="<%=context%>/Mybatis" method="post">
-			<input type="text" value="register">
+			<input type="text" value="register" name="register">
 			<input type="submit" value="register_check">
 		</form>
 		

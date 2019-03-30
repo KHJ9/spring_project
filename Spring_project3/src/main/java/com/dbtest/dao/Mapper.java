@@ -4,6 +4,6 @@ import org.apache.ibatis.annotations.Param;
 
 public interface Mapper {
 
-	public String primary_num(@Param("reg_id") String reg_id);
+	public String get_notice(@Param("register") String reg_id);
 	
 }

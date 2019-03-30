@@ -13,22 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dbtest.dao.Mapper;
 
-@Controller
 public class DBController {
-
-	private static final Logger logger = (Logger) LoggerFactory.getLogger(DBController.class);
-	
-	@Autowired
-	private Mapper mapper;
-	
-	@RequestMapping(method=RequestMethod.POST, value="/Mybatis")
-	public String list(HttpServletRequest request, Model model) {
-		
-		String register = request.getParameter("register");
-		
-		model.addAttribute("register", mapper.primary_num("register"));
-		return "Mybatis_practice";
-	}
 	
 }
 

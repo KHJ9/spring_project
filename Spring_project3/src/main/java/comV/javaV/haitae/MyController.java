@@ -1,12 +1,19 @@
 package comV.javaV.haitae;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.dbtest.controller.DBController;
+import com.dbtest.dao.Mapper;
 
 import comV.javaV.DB.DBprocess;
 import comV.javaV.arrayClass.Indexinfo;
@@ -29,6 +36,21 @@ public class MyController {
 		model.addAttribute("event", Event);
 		return "index";
 		// 
+	}
+	
+	// private static final Logger logger = (Logger) LoggerFactory.getLogger(DBController.class);
+	
+	@Autowired
+	private Mapper mapper;
+	
+	@RequestMapping(method=RequestMethod.POST, value="/Mybatis")
+	public String list(HttpServletRequest request, Model model) {
+		
+		String register = request.getParameter("register");
+		System.out.println("@@@@@@@@@@@@@@");
+		
+		model.addAttribute("register", mapper.get_notice("register"));
+		return "Mybatis_practice";
 	}
 	
 }
