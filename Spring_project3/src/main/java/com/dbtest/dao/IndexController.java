@@ -16,6 +16,9 @@ import com.dbtest.dao.Mapper;
 
 import comV.javaV.DB.DBprocess;
 import comV.javaV.arrayClass.Indexinfo;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import java.util.*;
 
 @Controller(value="/haitai")
@@ -24,12 +27,7 @@ public class IndexController {
 	@Autowired
 	private Mapper mapper;
 	
-	@RequestMapping("/index")
-	public String index() {
-		return "index";
-	}
-	
-	@RequestMapping(method=RequestMethod.POST, value="/getList")
+	@RequestMapping(value="/index")
 	public String list(HttpServletRequest request, Model model) {
 		
 		// String register = request.getParameter("register");
@@ -43,12 +41,11 @@ public class IndexController {
 		result.add(mapper.get_news());
 		result.add(mapper.get_event());
 		
-		System.out.println(result.toString());
-		
 		model.addAttribute("list", result);
 		model.addAttribute("test", "test");
 		System.out.println("@@@@@@@@@@@@@@"+model.toString());
-		return "redirect:index";
+		
+		return "index";
 	}
 	
 }

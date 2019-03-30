@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="ko">
 	<head>
-		<title>아쿠아필드${test}</title>
+		<title>아쿠아필드</title>
 		<meta charset="utf-8">
 		<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet" type="text/css">
 		<link href="${pageContext.request.contextPath}/resources/css/haitai.css" rel="stylesheet" type="text/css">
@@ -12,7 +12,8 @@
 		<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 	</head>
 	<body>
-		
+
+		<!--
 		<script>
 			$(document).ready(function(){
 				$.ajax({
@@ -25,6 +26,7 @@
 				});
 			});
 		</script>
+		-->
 		
 		<!-- skip navigation -->
 		<dl id="access"> <!-- 제목이 나오고 설명이 나오는 것이 반복 -->
