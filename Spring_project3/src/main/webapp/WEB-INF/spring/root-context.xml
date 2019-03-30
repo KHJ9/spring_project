@@ -26,4 +26,6 @@
 	<mybatis-spring:scan base-package="com.dbtest.dao"/>	
 	
 	
+	<!-- practice -->
+	
 </beans>
